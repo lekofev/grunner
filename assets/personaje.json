@@ -1,0 +1,68 @@
+{"frames": [
+
+{
+	"filename": "personaje0001.png",
+	"frame": {"x":2,"y":2,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "personaje0002.png",
+	"frame": {"x":169,"y":2,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "personaje0003.png",
+	"frame": {"x":336,"y":2,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "personaje0004.png",
+	"frame": {"x":2,"y":194,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "personaje0005.png",
+	"frame": {"x":169,"y":194,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "personaje0006.png",
+	"frame": {"x":336,"y":2,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "personaje0007.png",
+	"frame": {"x":336,"y":194,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "personaje.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:396ceba86e26fb3cddd4f9d35e54c96d:13e4155efb515d9018326c653a012c5e:e2ce878231ef5606b4bd80d40f5b7b8b$"
+}
+}

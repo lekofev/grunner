@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:756a51e5901c098092ae92cc13c2316f:1/1$ -->
+<TextureAtlas imagePath="atlas.png">
+    <SubTexture name="cuasha_0001" x="2" y="2" width="152" height="164" frameX="-4" frameY="-12" frameWidth="160" frameHeight="180"/>
+    <SubTexture name="cuasha_0002" x="156" y="2" width="140" height="164" frameX="-18" frameY="-16" frameWidth="160" frameHeight="180"/>
+    <SubTexture name="cuasha_0003" x="298" y="2" width="136" height="160" frameX="-22" frameY="-20" frameWidth="160" frameHeight="180"/>
+    <SubTexture name="cuasha_0004" x="2" y="168" width="140" height="164" frameX="-18" frameY="-16" frameWidth="160" frameHeight="180"/>
+    <SubTexture name="cuasha_0005" x="144" y="168" width="152" height="164" frameX="-6" frameY="-12" frameWidth="160" frameHeight="180"/>
+    <SubTexture name="cuasha_0006" x="298" y="168" width="136" height="160" frameX="-22" frameY="-20" frameWidth="160" frameHeight="180"/>
+    <SubTexture name="cuasha_0007" x="2" y="334" width="140" height="164" frameX="-18" frameY="-16" frameWidth="160" frameHeight="180"/>
+    <SubTexture name="tombo_0001" x="144" y="334" width="157" height="180" frameX="-3" frameY="-9" frameWidth="165" frameHeight="190"/>
+    <SubTexture name="tombo_0002" x="303" y="334" width="145" height="180" frameX="-12" frameY="-9" frameWidth="165" frameHeight="190"/>
+    <SubTexture name="tombo_0003" x="2" y="516" width="113" height="176" frameX="-25" frameY="-11" frameWidth="165" frameHeight="190"/>
+    <SubTexture name="tombo_0004" x="117" y="516" width="145" height="178" frameX="-11" frameY="-9" frameWidth="165" frameHeight="190"/>
+    <SubTexture name="tombo_0005" x="264" y="516" width="159" height="178" frameX="-6" frameY="-9" frameWidth="165" frameHeight="190"/>
+    <SubTexture name="tombo_0006" x="2" y="516" width="113" height="176" frameX="-25" frameY="-11" frameWidth="165" frameHeight="190"/>
+    <SubTexture name="tombo_0007" x="2" y="696" width="139" height="180" frameX="-10" frameY="-9" frameWidth="165" frameHeight="190"/>
+</TextureAtlas>
