@@ -1,0 +1,116 @@
+{"frames": [
+
+{
+	"filename": "barrer0001.png",
+	"frame": {"x":2,"y":2,"w":100,"h":185},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":185},
+	"sourceSize": {"w":100,"h":185}
+},
+{
+	"filename": "barrer0002.png",
+	"frame": {"x":104,"y":2,"w":58,"h":191},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":191},
+	"sourceSize": {"w":58,"h":191}
+},
+{
+	"filename": "barrer0003.png",
+	"frame": {"x":164,"y":2,"w":125,"h":185},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":125,"h":185},
+	"sourceSize": {"w":125,"h":185}
+},
+{
+	"filename": "barrer0004.png",
+	"frame": {"x":291,"y":2,"w":126,"h":175},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":126,"h":175},
+	"sourceSize": {"w":126,"h":175}
+},
+{
+	"filename": "barrer0005.png",
+	"frame": {"x":2,"y":195,"w":176,"h":155},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":155},
+	"sourceSize": {"w":176,"h":155}
+},
+{
+	"filename": "barrer0006.png",
+	"frame": {"x":180,"y":195,"w":208,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":98},
+	"sourceSize": {"w":208,"h":98}
+},
+{
+	"filename": "barrer0007.png",
+	"frame": {"x":2,"y":352,"w":208,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":100},
+	"sourceSize": {"w":208,"h":100}
+},
+{
+	"filename": "barrer0008.png",
+	"frame": {"x":212,"y":352,"w":208,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":100},
+	"sourceSize": {"w":208,"h":100}
+},
+{
+	"filename": "barrer0009.png",
+	"frame": {"x":2,"y":454,"w":206,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":206,"h":99},
+	"sourceSize": {"w":206,"h":99}
+},
+{
+	"filename": "barrer0010.png",
+	"frame": {"x":210,"y":454,"w":201,"h":117},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":201,"h":117},
+	"sourceSize": {"w":201,"h":117}
+},
+{
+	"filename": "barrer0011.png",
+	"frame": {"x":2,"y":573,"w":189,"h":164},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":189,"h":164},
+	"sourceSize": {"w":189,"h":164}
+},
+{
+	"filename": "barrer0012.png",
+	"frame": {"x":193,"y":573,"w":168,"h":187},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":187},
+	"sourceSize": {"w":168,"h":187}
+},
+{
+	"filename": "barrer0013.png",
+	"frame": {"x":363,"y":573,"w":106,"h":182},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":106,"h":182},
+	"sourceSize": {"w":106,"h":182}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "barrer.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:0b76421716a499508efb3baa6e9e6216:92620f37272b182324b1a6ffef51c6eb:11205e41ec61741021671cf6d65b283b$"
+}
+}

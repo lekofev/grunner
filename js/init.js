@@ -13,32 +13,31 @@ $(document).ready(function(){
 
 //	Bakground Manager
 
-	var Background= function()
-	{
-		var item
-		var crear = function(nombre, asset)
-		{
-			// console.log(nombre, asset)
-			game.load.image('cieloA', 'assets/cielo.jpg');
+	// var Background= function()
+	// {
+	// 	var item
+	// 	var crear = function(nombre, asset)
+	// 	{
+	// 		// console.log(game, asset)
+	// 		game.load.image(nombre, asset);
 			
-		};
-		var addStage = function()
-		{
+	// 	};
+	// 	var addStage = function(nombre)
+	// 	{
+	// 		// console.log('added', item)
+	// 		item = game.add.sprite(0, 0,nombre);
+	// 	}
+	// 	var getItem = function()
+	// 	{
+	// 		return item;
+	// 	};
 
-			item = game.add.sprite(0, 0,'cieloA');
-			console.log('added', item)
-		}
-		var getItem = function()
-		{
-			return item;
-		};
-
-		return{			
-			crear:crear,
-			addStage:addStage,
-			item:item
-		}
-	}
+	// 	return{			
+	// 		crear:crear,
+	// 		addStage:addStage,
+	// 		item:item
+	// 	}
+	// }
 
 	var BackgroundManager=function()
 	{
@@ -94,61 +93,81 @@ $(document).ready(function(){
 
 	var Personaje= function()
 	{
-		function crear(x, y, sprite)
+		var personaje;
+		function crear(x, y, pj)
 		{
-			if(correr)
+			if(pj=='correr')
 			{
-			    personaje=game.add.sprite(x,y,sprite)
+			    personaje=game.add.sprite(x,y,pj)
 			    personaje.animations.add('run')
 			    personaje.animations.play('run', 12, true);
 			}
-			else if(saltar)
+			else if(pj=='saltar')
 			{
-			    personaje=game.add.sprite(x,y,sprite)
+			    personaje=game.add.sprite(x,y,pj)
 			    personaje.animations.add('run')
-			    personaje.animations.play('run', 12, true);
+			    personaje.animations.play('run', 12, false);
 			}
-			else if(barrer)
+			else if(pj=='barrer')
 			{
-			    personaje=game.add.sprite(x,y,sprite)
+			    personaje=game.add.sprite(x,y,pj)
 			    personaje.animations.add('run')
-			    personaje.animations.play('run', 12, true);				
+			    personaje.animations.play('run', 12, false);				
 			}
-			else if(frenar)
+			else if(pj=='frenar')
 			{
-			    personaje=game.add.sprite(x,y,sprite)
+			    personaje=game.add.sprite(x,y,pj)
 			    personaje.animations.add('run')
-			    personaje.animations.play('run', 12, true);				
+			    personaje.animations.play('run', 12, false);				
 			}
+
+		    if(debug)
+		    {
+				// game.debug.renderSpriteCorners(personaje, false, true);			    	
+		    }
 
 		}
 
-		return{
-			crear:crear
-		}
-
-	}
-
-	var ManagerPersonaje = function()
-	{
-		function crear(x, y, sprite)
+		function destruir()
 		{
-	
-
+			personaje.destroy();
 		}
 
-		function update()
+		function getPersonaje()
 		{
+			return personaje;
 
 		}
 
 		return{
 			crear:crear,
-			update:update
+			destruir:destruir,
+			getPersonaje:getPersonaje
 
 		}
 
 	}
+
+	// var PersonajeManager = function()
+	// {
+	// 	function crear(x, y, sprite)
+	// 	{
+	
+
+	// 	}
+
+	// 	function update()
+	// 	{
+
+	// 	}
+
+	// 	return{
+	// 		crear:crear,
+	// 		update:update
+
+	// 	}
+
+	// }
 
 
 	var Hola = function()
@@ -188,6 +207,10 @@ $(document).ready(function(){
 	var barrer=false;	
 	var frenar= false;
 
+	var debug=true;
+
+	var contadorActividad=0;
+
 	var game = new Phaser.Game(800, 480, Phaser.CANVAS, 'trunner', 
 			{ 
 				preload: preload, 
@@ -204,58 +227,36 @@ $(document).ready(function(){
 	var velocidadEdificio=velocidadRunner;
 
 
-	// fondo
+	//Fondos
 	var cieloA, cieloB, edificioFondoA, edificioFondoB, edificioA, edificioB;
-
-	var _backgroundCielo = new Background(game)
 	var _backgroundManager = new BackgroundManager()
 	var fondosArray=[];
 
-	// var robot;
 
-	// var _hola = new Hola()
-
-	// _hola.hola();
-	// console.log(_hola.getqhace())
+	//personaje
+	var _personaje = new Personaje();
 
 
 
-	function preload() {		
+	function preload() {	
 
-		_backgroundCielo.crear('cieloB', 'assets/cielo.jpg')
-		_backgroundCielo.addStage();
-		// _background.crear('edificioFondoA', 'assets/cielo.jpg')
-		// _background.crear('edificioFondoB', 'assets/cielo.jpg')
+	    game.load.image('cieloA', 'assets/cielo.jpg');
+	    game.load.image('cieloB', 'assets/cielo.jpg');
 
-		// _background.crear('edificioA', 'assets/cielo.jpg')
-		// _background.crear('edificioB', 'assets/cielo.jpg')
+	    game.load.image('edificioFondoA', 'assets/fondo.png');
+	    game.load.image('edificioFondoB', 'assets/fondo.png');
 
-		// _background.crear('aceraA', 'assets/cielo.jpg')
-		// _background.crear('aceraB', 'assets/cielo.jpg')
+	    game.load.image('edificioA', 'assets/edificio.png');
+	    game.load.image('edificioB', 'assets/edificio.png');
 
-	    //  You can fill the preloader with as many assets as your game requires
-
-	    //  Here we are loading an image. The first parameter is the unique
-	    //  string by which we'll identify the image later in our code.
-
-	    //  The second parameter is the URL of the image (relative)
+	    game.load.image('aceraA', 'assets/acera.png');
+	    game.load.image('aceraB', 'assets/acera.png');
 
 
-	    // game.load.image('cieloA', 'assets/cielo.jpg');
-	    // game.load.image('cieloB', 'assets/cielo.jpg');
-
-	    // game.load.image('edificioFondoA', 'assets/fondo.png');
-	    // game.load.image('edificioFondoB', 'assets/fondo.png');
-
-	    // game.load.image('edificioA', 'assets/edificio.png');
-	    // game.load.image('edificioB', 'assets/edificio.png');
-
-	    // game.load.image('aceraA', 'assets/acera.png');
-	    // game.load.image('aceraB', 'assets/acera.png');
-
-
-
-	    // game.load.atlasJSONHash('personaje', 'assets/personaje.png','assets/personaje.json' );
+	    // _personaje.crear();
+	    game.load.atlasJSONHash('correr', 'assets/correr.png','assets/correr.json' );
+	    game.load.atlasJSONHash('saltar', 'assets/saltar.png','assets/saltar.json' );
+	    game.load.atlasJSONHash('barrer', 'assets/barrer.png','assets/barrer.json' );
 
 	}
 
@@ -263,28 +264,31 @@ $(document).ready(function(){
 
 	function create() {
 
-	    // cieloB = game.add.sprite(game.world.width, 0,'cieloB');
-	    // cieloA = game.add.sprite(0, 0,'cieloA');
-	    // // cieloB.body.velocity.x=-velocidadRunner;
+	    cieloB = game.add.sprite(game.world.width, 0,'cieloB');
+	    cieloA = game.add.sprite(0, 0,'cieloA');
 
-	    // edificioFondoB = game.add.sprite(game.world.width, 0,'edificioFondoB');
-	    // edificioFondoA = game.add.sprite(0, 0,'edificioFondoA');
+	    edificioFondoB = game.add.sprite(game.world.width, 0,'edificioFondoB');
+	    edificioFondoA = game.add.sprite(0, 0,'edificioFondoA');
 
-	    // edificioB = game.add.sprite(game.world.width, 0,'edificioB');
-	    // edificioA = game.add.sprite(0, 0,'edificioA');
+	    edificioB = game.add.sprite(game.world.width, 0,'edificioB');
+	    edificioA = game.add.sprite(0, 0,'edificioA');
 
-	    // aceraB = game.add.sprite(game.world.width, 408,'aceraB');
-	    // aceraA = game.add.sprite(0, 408,'aceraA');
+	    aceraB = game.add.sprite(game.world.width, 408,'aceraB');
+	    aceraA = game.add.sprite(0, 408,'aceraA');
 
-	    // fondosArray.push(cieloB)
-	    // fondosArray.push(cieloA)
-	    // fondosArray.push(edificioFondoB)
-	    // fondosArray.push(edificioFondoA)
-	    // fondosArray.push(edificioB)
-	    // fondosArray.push(edificioA)
-	    // fondosArray.push(aceraB)
-	    // fondosArray.push(aceraA)
+	    fondosArray.push(cieloB)
+	    fondosArray.push(cieloA)
+	    fondosArray.push(edificioFondoB)
+	    fondosArray.push(edificioFondoA)
+	    fondosArray.push(edificioB)
+	    fondosArray.push(edificioA)
+	    fondosArray.push(aceraB)
+	    fondosArray.push(aceraA)
 
+
+
+
+	    _personaje.crear(120,250,'correr')
 
 	    // personaje=game.add.sprite(120,250,'personaje')
 	    // personaje.animations.add('run')
@@ -294,14 +298,50 @@ $(document).ready(function(){
 	    // personaje.body.velocity.x=-120;
 
 	}
-	function update()
+
+	function update(swipe)
 	{
-	    // _backgroundManager.update(fondosArray)
+	    _backgroundManager.update(fondosArray)
+
+
+	    if(saltar)
+	    {
+
+	    	contadorActividad++
+	    	console.log(contadorActividad)
+	    	if(contadorActividad==35)
+	    	{
+
+				_personaje.destruir();
+				_personaje.crear(120,250,'correr')
+
+				contadorActividad=0;
+				saltar=false;
+	    	}
+	    }
+	    else if(barrer)
+	    {
+	    	contadorActividad++
+	    	console.log(contadorActividad)
+	    	if(contadorActividad==69)
+	    	{
+				_personaje.destruir();
+				_personaje.crear(120,250,'correr')
+
+				contadorActividad=0;
+				barrer=false;
+	    	}	
+	    }   
+
+	    if(debug)
+	    {
+	    	// console.log('sdfsd')
+	    }
+	    
 
 	}
 
-
-
+	// function 
 
 	function animarFondo()
 	{	
@@ -314,6 +354,7 @@ $(document).ready(function(){
 	{
 		// game.debug.renderSpriteInfo(personaje, 32, 200);
 		// game.debug.renderSpriteCorners(personaje, false, true);
+		game.debug.renderSpriteCorners(_personaje.getPersonaje(), false, true);	
 
 	}
 
@@ -329,7 +370,12 @@ $(document).ready(function(){
 
 
 	$$('canvas').swipeUp(function() {
-		console.log('the swipeUp')
+		_personaje.destruir();
+		_personaje.crear(120,250,'saltar') 
+		saltar=true;  
+		// console.log('the swipeUp')
+		// _personaje.destruir();
+		// _personaje.crear(120,250,'saltar')
 
 	});
 
@@ -338,6 +384,10 @@ $(document).ready(function(){
 	});
 	$$('canvas').swipeDown(function() {
 		console.log('the swipeDown')
+		_personaje.destruir();
+		_personaje.crear(120,250,'barrer') 
+		barrer=true;  
+
 	});
 	$$('canvas').swipeLeft(function() {
 		console.log('the swipeLeft')
