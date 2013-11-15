@@ -299,6 +299,10 @@ $(document).ready(function(){
 
 	}
 
+
+	var contadorBarrido=0;
+	var n,j;
+
 	function update(swipe)
 	{
 	    _backgroundManager.update(fondosArray)
@@ -311,7 +315,6 @@ $(document).ready(function(){
 	    	console.log(contadorActividad)
 	    	if(contadorActividad==35)
 	    	{
-
 				_personaje.destruir();
 				_personaje.crear(120,250,'correr')
 
@@ -322,13 +325,45 @@ $(document).ready(function(){
 	    else if(barrer)
 	    {
 	    	contadorActividad++
-	    	console.log(contadorActividad)
+	    	// n++
+	    	// j=3*n
+
+	    	contadorBarrido=contadorBarrido+3
+
+	    	if(contadorBarrido==j)
+	    	{
+		    	_personaje.getPersonaje().y=270
+	    	}
+	    	else if(contadorBarrido==23)
+	    	{
+	    		_personaje.getPersonaje().y=270
+	    	}
+	    	else if(contadorBarrido==23)
+	    	{
+	    		_personaje.getPersonaje().y=270
+	    	}
+	    	else if(contadorBarrido==23)
+	    	{
+	    		_personaje.getPersonaje().y=270
+	    	}
+	    	else if(contadorBarrido==23)
+	    	{
+	    		_personaje.getPersonaje().y=270
+	    	}
+	    	else if(contadorBarrido==23)
+	    	{
+	    		_personaje.getPersonaje().y=270
+	    	}
+
+
+	    	
 	    	if(contadorActividad==69)
 	    	{
 				_personaje.destruir();
 				_personaje.crear(120,250,'correr')
 
 				contadorActividad=0;
+				contadorBarrido=0;
 				barrer=false;
 	    	}	
 	    }   
@@ -385,7 +420,10 @@ $(document).ready(function(){
 	$$('canvas').swipeDown(function() {
 		console.log('the swipeDown')
 		_personaje.destruir();
-		_personaje.crear(120,250,'barrer') 
+		_personaje.crear(120,250,'barrer')
+
+		// _personaje.getPersonaje().y=350 
+		
 		barrer=true;  
 
 	});
