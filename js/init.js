@@ -301,7 +301,9 @@ $(document).ready(function(){
 
 
 	var contadorBarrido=0;
-	var n,j;
+	var contadorSalto=-3;
+	var n=-6,j;
+	var subiendo=true;
 
 	function update(swipe)
 	{
@@ -312,50 +314,80 @@ $(document).ready(function(){
 	    {
 
 	    	contadorActividad++
-	    	console.log(contadorActividad)
+	    	// contadorSalto++
+
+
+	    	// _personaje.getPersonaje().y-=1;
+	    	
+	    	if(_personaje.getPersonaje().y<150)
+	    	{
+	    		subiendo=false;
+	    	}
+
+	    	if(subiendo)
+	    	{
+	    		_personaje.getPersonaje().y-=6;
+	    	}
+	    	else
+	    	{
+	    		// console.log('bajando')
+	    		_personaje.getPersonaje().y+=6;	
+	    	}
+	    	
+	    	// else{
+	    	// 	_personaje.getPersonaje().y+=6
+	    	// }
+
+	    	// _personaje.getPersonaje().y+=n
+	    	// else if(_personaje.getPersonaje().y<180)
+	    	// {
+	    	// 	_personaje.getPersonaje().y-=3
+	    	// }
+
+	    	// console.log(_personaje.getPersonaje().y)
+
 	    	if(contadorActividad==35)
 	    	{
 				_personaje.destruir();
 				_personaje.crear(120,250,'correr')
 
 				contadorActividad=0;
+				contadorSalto=0;
 				saltar=false;
+				subiendo=true;
 	    	}
+
 	    }
 	    else if(barrer)
 	    {
 	    	contadorActividad++
-	    	// n++
-	    	// j=3*n
 
-	    	contadorBarrido=contadorBarrido+3
+	    	contadorBarrido++
 
-	    	if(contadorBarrido==j)
+	    	if(contadorBarrido==6)
 	    	{
-		    	_personaje.getPersonaje().y=270
+		    	_personaje.getPersonaje().y=251
 	    	}
-	    	else if(contadorBarrido==23)
+	    	else if(contadorBarrido==12)
 	    	{
-	    		_personaje.getPersonaje().y=270
+	    		_personaje.getPersonaje().y=253
 	    	}
-	    	else if(contadorBarrido==23)
+	    	else if(contadorBarrido==18)
 	    	{
-	    		_personaje.getPersonaje().y=270
+	    		_personaje.getPersonaje().y=255
 	    	}
-	    	else if(contadorBarrido==23)
+	    	else if(contadorBarrido==24)
 	    	{
-	    		_personaje.getPersonaje().y=270
+	    		_personaje.getPersonaje().y=330
 	    	}
-	    	else if(contadorBarrido==23)
+	    	else if(contadorBarrido==48)
 	    	{
-	    		_personaje.getPersonaje().y=270
+	    		_personaje.getPersonaje().y=255
 	    	}
-	    	else if(contadorBarrido==23)
+	    	else if(contadorBarrido==54)
 	    	{
-	    		_personaje.getPersonaje().y=270
+	    		_personaje.getPersonaje().y=251
 	    	}
-
-
 	    	
 	    	if(contadorActividad==69)
 	    	{
