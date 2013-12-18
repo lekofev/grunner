@@ -1,0 +1,124 @@
+{"frames": [
+
+{
+	"filename": "aniAcelerar0001.png",
+	"frame": {"x":2,"y":2,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0002.png",
+	"frame": {"x":169,"y":2,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0003.png",
+	"frame": {"x":336,"y":2,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0004.png",
+	"frame": {"x":2,"y":194,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0005.png",
+	"frame": {"x":169,"y":194,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0006.png",
+	"frame": {"x":336,"y":194,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0007.png",
+	"frame": {"x":2,"y":386,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0008.png",
+	"frame": {"x":169,"y":386,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0009.png",
+	"frame": {"x":336,"y":386,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0010.png",
+	"frame": {"x":2,"y":578,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0011.png",
+	"frame": {"x":169,"y":578,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0012.png",
+	"frame": {"x":336,"y":578,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0013.png",
+	"frame": {"x":2,"y":770,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+},
+{
+	"filename": "aniAcelerar0014.png",
+	"frame": {"x":169,"y":770,"w":165,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":190},
+	"sourceSize": {"w":165,"h":190}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "fast.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f029913768b213ba3968079ec6494de0:77ee0302f31cd78991d9a6b20594d17c:59718f58f568a11451c764724360a9b0$"
+}
+}

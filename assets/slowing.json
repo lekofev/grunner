@@ -1,0 +1,84 @@
+{"frames": [
+
+{
+	"filename": "aniAcelerar0001.png",
+	"frame": {"x":2,"y":2,"w":100,"h":185},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":185},
+	"sourceSize": {"w":100,"h":185}
+},
+{
+	"filename": "aniAcelerar0002.png",
+	"frame": {"x":104,"y":2,"w":103,"h":180},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":103,"h":180},
+	"sourceSize": {"w":103,"h":180}
+},
+{
+	"filename": "aniAcelerar0003.png",
+	"frame": {"x":209,"y":2,"w":106,"h":179},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":106,"h":179},
+	"sourceSize": {"w":106,"h":179}
+},
+{
+	"filename": "aniAcelerar0004.png",
+	"frame": {"x":317,"y":2,"w":129,"h":179},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":179},
+	"sourceSize": {"w":129,"h":179}
+},
+{
+	"filename": "aniAcelerar0005.png",
+	"frame": {"x":2,"y":189,"w":143,"h":179},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":143,"h":179},
+	"sourceSize": {"w":143,"h":179}
+},
+{
+	"filename": "aniAcelerar0006.png",
+	"frame": {"x":147,"y":189,"w":149,"h":179},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":149,"h":179},
+	"sourceSize": {"w":149,"h":179}
+},
+{
+	"filename": "aniAcelerar0007.png",
+	"frame": {"x":298,"y":189,"w":149,"h":179},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":149,"h":179},
+	"sourceSize": {"w":149,"h":179}
+},
+{
+	"filename": "aniAcelerar0008.png",
+	"frame": {"x":2,"y":370,"w":149,"h":179},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":149,"h":179},
+	"sourceSize": {"w":149,"h":179}
+},
+{
+	"filename": "aniAcelerar0009.png",
+	"frame": {"x":153,"y":370,"w":144,"h":185},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":144,"h":185},
+	"sourceSize": {"w":144,"h":185}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "slowing.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:45fef899629506f678f8c032923466e8:8970303cadf2c3603afd2b9611089b72:845d68c01905b69920db2af121b74adb$"
+}
+}
