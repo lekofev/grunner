@@ -80,28 +80,31 @@ var Boot = function(){
 
 }
 
-function boot(){
-	    function preload() {
-	        game.load.image('logo', 'assets/logo.png');
-	        game.load.image('loaderFull', 'assets/loader_on.png');
-	        game.load.image('loaderEmpty', 'assets/loader_off.png');
-	    }
-
-	    function create() {
-
-	        // this.game.stage.enableOrientationCheck(true, false, 'orientation');
-	        game.switchState(_preloader.startPreloader());
-	    }
-}
-
-
-
 
 var _boot = new Boot();
 var _preloader = new Preloader();
 var game = new Phaser.Game(800, 480, Phaser.CANVAS);
-	
 
+    // game.state.add('gaming', gaming);
+    // game.state.add('select', levelSelect);
+
+
+function boot(){
+			console.log ("boot")
+			game.state.add('gaming', gaming, true);
+			// game.switchState('gaming')
+	    // function preload() {
+	    //     game.load.image('logo', 'assets/logo.png');
+	    //     game.load.image('loaderFull', 'assets/loader_on.png');
+	    //     game.load.image('loaderEmpty', 'assets/loader_off.png');
+	    // }
+
+	    // function create() {
+
+	    //     // this.game.stage.enableOrientationCheck(true, false, 'orientation');
+	    //     game.switchState(_preloader.startPreloader());
+	    // }
+}
 
 window.onload = function() { 
 	boot()
