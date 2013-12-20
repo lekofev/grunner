@@ -26,7 +26,6 @@ var runnerSpeed = 4
 
 //Fondos
 var cieloA, cieloB, edificioFondoA, edificioFondoB, edificioA, edificioB;
-
 var bgCielo, bgBackBuildings, bgFrontBuildings, bgSideWalk;
 
 
@@ -94,20 +93,13 @@ function create() {
 
 }// end create
 
-var contadorBarrido=0;
-var contadorSalto=-3;
-var n=-6,j;
-var subiendo=true;
-
 function update()
 {
     bgCielo.update()
     bgBackBuildings.update()
     bgFrontBuildings.update()
     bgSideWalk.update()
-
     watcherActivity()
-  
 
 }// end update
 
