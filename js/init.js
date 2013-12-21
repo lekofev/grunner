@@ -1,5 +1,69 @@
 
-function gaming(){
+
+window.l= console.log.bind(console)
+
+
+var gaming={
+    preload: function()
+    {
+        console.log ("preload")
+        game.load.image('cieloA', 'assets/cielo.jpg');
+        game.load.image('cieloB', 'assets/cielo.jpg');
+
+        game.load.image('edificioFondoA', 'assets/fondo.png');
+        game.load.image('edificioFondoB', 'assets/fondo.png');
+
+        game.load.image('edificioA', 'assets/edificio.png');
+        game.load.image('edificioB', 'assets/edificio.png');
+
+        game.load.image('aceraA', 'assets/acera.png');
+        game.load.image('aceraB', 'assets/acera.png');
+
+
+        // player.crear();
+        game.load.atlasJSONHash('correr', 'assets/correr.png','assets/correr.json' );
+        game.load.atlasJSONHash('saltar', 'assets/saltar.png','assets/saltar.json' );
+        game.load.atlasJSONHash('barrer', 'assets/barrer.png','assets/barrer.json' );
+        game.load.atlasJSONHash('slowing', 'assets/slowing.png','assets/slowing.json' );
+        game.load.atlasJSONHash('fast', 'assets/fast.png','assets/fast.json' );
+
+    },
+    create: function(){
+        console.log("create")
+        cieloA = game.add.sprite(0, 0,'cieloA');
+        cieloB = game.add.sprite(0, 0,'cieloB');
+        bgCielo = new BackgroundManager(cieloA, cieloB, runnerSpeed, 0.2)
+        bgCielo.setOnCanvas(true)
+
+        edificioFondoA = game.add.sprite(0, 0,'edificioFondoA');
+        edificioFondoB = game.add.sprite(0, 0,'edificioFondoB');
+        bgBackBuildings = new BackgroundManager(edificioFondoA, edificioFondoB, runnerSpeed, 0.5)
+        bgBackBuildings.setOnCanvas(true)
+
+        edificioA = game.add.sprite(0, 0,'edificioA');
+        edificioB = game.add.sprite(0, 0,'edificioB');
+        bgFrontBuildings = new BackgroundManager(edificioA, edificioB, runnerSpeed, 1)
+        bgFrontBuildings.setOnCanvas(false)
+
+        aceraA = game.add.sprite(0, 0,'aceraA');
+        aceraB = game.add.sprite(0, 0,'aceraB');
+        bgSideWalk = new BackgroundManager(aceraA, aceraB, runnerSpeed, 1)
+        bgSideWalk.setOnCanvas(false)
+    }    
+}
+
+// gaming.prototype = {
+//     preload: function()
+//     {
+//         console.log ("preload")
+//     },
+//     create: function(){
+//         console.log("create")
+//     }
+// }
+
+
+function _gaming(){
     var pause=false;
     var play=true;
 
