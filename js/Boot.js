@@ -36,15 +36,15 @@ var Preloader={
 
 	},
 	create:function(){		
-        this.loader_off = game.add.sprite(game.world.width/2, game.world.height/2,'loader_off');
-        this.loader_on = game.add.sprite(game.world.width/2, game.world.height/2,'loader_on');
-        this.loader_on.cropEnabled = true;
-        this.loader_on.crop.width  = 0;
+        game.loader_off = game.add.sprite(game.world.width/2, game.world.height/2,'loader_off');
+        game.loader_on = game.add.sprite(game.world.width/2, game.world.height/2,'loader_on');
+        game.loader_on.cropEnabled = true;
+        game.loader_on.crop.width  = 0;
 	},
 	preloadBar: function(){
 		l("preloaded")
-		this.progress++
-		this.loader_on.crop.width = Math.ceil( 100/100 * this.progress)
+		game.progress++
+		game.loader_on.crop.width = Math.ceil( 100/100 * this.progress)
 	}
 	// ,
 	// update: function()

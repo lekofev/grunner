@@ -1,7 +1,5 @@
 
-
 window.l= console.log.bind(console)
-
 
 var gaming={
     preload: function()
