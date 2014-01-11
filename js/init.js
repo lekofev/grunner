@@ -14,9 +14,10 @@
     // } 
 
     var preload = {
-        loader_on:Phaser.Sprite,
-        loader_off:Phaser.Sprite,
-        m:0,
+        barra_cover:Phaser.Graphics,
+        barra_loader:Phaser.Graphics,
+        contador_archivos:0,
+        total_archivos:13,
         boot:function(game){
             this.game = game;
         },
@@ -26,6 +27,24 @@
             // this.loader_on = this.game.add.sprite(game.world.width/2, game.world.height/2,'loader_on');
             // this.loader_on.cropEnabled = true;
             // this.loader_on.crop.width  = 10;  
+            var game = this.game;
+            var barra_cover = this.barra_cover;
+            var barra_loader = this.barra_loader;
+
+            game.stage.backgroundColor="#ffffff"
+
+
+            barra_cover = game.add.graphics(0, 0);
+            barra_loader = game.add.graphics(0, 0);
+
+            barra_cover.lineStyle(5, 0x0000FF, 1);
+            barra_cover.drawRect(50, 250, 600, 30);
+
+            barra_loader.lineStyle(10, 0x0000FF, 1);
+            barra_loader.moveTo(60,265)
+            barra_loader.lineTo(61, 265);
+
+            this.barra_loader = barra_loader;
 
             game.load.image('cieloA', 'assets/cielo.jpg');
             game.load.image('cieloB', 'assets/cielo.jpg');
@@ -38,7 +57,6 @@
 
             game.load.image('aceraA', 'assets/acera.png');
             game.load.image('aceraB', 'assets/acera.png');
-            game.load.image('test', "http://upload.wikimedia.org/wikipedia/commons/0/01/Mars_'Curiosity'_Rover,_Spacecraft_Assembly_Facility,_Pasadena,_California_(2011).jpg");
 
             // player.crear();
             game.load.atlasJSONHash('correr', 'assets/correr.png','assets/correr.json' );
@@ -47,15 +65,22 @@
             game.load.atlasJSONHash('slowing', 'assets/slowing.png','assets/slowing.json' );
             game.load.atlasJSONHash('fast', 'assets/fast.png','assets/fast.json' );
 
-            this.game.load.onFileComplete.add(this.preloadBar, this);
+            game.load.onFileComplete.add(this.preloadBar, this);
+
+            this.game = game;
         },
         create:function(){
             // aa = game.add.sprite(0, 0,'test');
         },
         preloadBar:function(){
-            this.m++
-            l("running prealod", this.m)
-            this.loader_on.crop.width  += 5;
+            var barra_loader = this.barra_loader;
+            this.contador_archivos++
+            l("running prealod", this.contador_archivos)
+            barra_loader.lineTo(61+(this.contador_archivos*20), 265)
+            if(this.contador_archivos == this.total_archivos){
+                l("completo loadr")
+                setTimeout(function(){ game.state.start('start', true, true); },1000)
+            }
         }
     }
  
@@ -69,12 +94,9 @@
             l("start preload")
             this.game.load.image('logo', 'assets/logos/hacha.png');
             this.game.load.image('ea', 'assets/logos/ea.png');
-            this.game.load.image('loader_off', 'assets/loader_off.png');
-            this.game.load.image('loader_on', 'assets/loader_on.png');
-
         },
         create:function(){
-            var game = this.game<
+            var game = this.game;
             var hacha = this.hacha
             var ea = this.ea
             game.stage.backgroundColor="#ffffff"
@@ -88,6 +110,8 @@
             // loader_off = game.add.sprite(game.world.width/2, game.world.height/2,'loader_off');
             // loader_on = game.add.sprite(game.world.width/2, game.world.height/2,'loader_on');
             this.logoIntro(hacha, ea)
+            this.game = game;
+
         },
         logoIntro:function(hacha, ea){
             var game = this.game;
@@ -104,9 +128,12 @@
             ea.to({ alpha:1 }, 1000, Phaser.Easing.Linear.In)
             .to({ alpha:0 }, 500, Phaser.Easing.Linear.In, false, 2000)
             ._lastChild.onComplete.add(this.changeGameState, this);
+
+
+            this.game = game;
         },
         changeGameState:function(){
-            // game.state.start('welcome', true, true);
+            this.game.state.start('welcome', true, true);
         }
     }
 
@@ -147,12 +174,18 @@
 
             salir = game.add.button(game.world.width/2, 210,'salir', this.salir_click, this, 1, 0, 1)
             .anchor.setTo(0.5,0)
+
+            this.game = game;
         },
         update:function(){
 
         },
         nueva_partida_click:function(){
             l("nueva_partida_click")
+            var game = this.game;
+            game.state.start('cinematica', true, true);
+
+            this.game = game;
 
         },
         ver_records_click:function(){
@@ -176,6 +209,8 @@
             var game = this.game;
             game.load.spritesheet('salir_cinematica', 'assets/botones/salir_cinematica.png', 150, 20);
 
+
+            this.game = game;
         },
         create:function(){
             l("cinematica create")
@@ -188,30 +223,23 @@
 
             salir_cinematica = game.add.button(game.world.width/2, game.world.height-60, 'salir_cinematica', this.salir_cinematica_click, this, 1, 0, 1)
             .anchor.setTo(0.5,0)
+
+
+            this.game = game;
         },
         update:function(){
             l("cinematica update")
             var game = this.game;
-            var cuadrado = this.cuadrado;
-            var mov = this.mov;
-            // l(game.time.fps)
-            cuadrado.x+=mov
-            if(cuadrado.x>200)
-            {
-                mov=mov*-1
-            }
-            else if(cuadrado.x<50){
-                mov = mov*-1
-            }
+
         },
         render:function(){
             var game = this.game;
             var cuadrado = this.cuadrado;
 
-            game.debug.renderRectangle(cuadrado,'#cccccc');
         },
         salir_cinematica_click:function(){
             l("salir_cinematica_click")
+            game.state.start('playing', true, true);
         }
     }
     var playing={
@@ -219,25 +247,25 @@
             this.game = game;
         },
         preload:function(){
-            l("thegame preload")
+            l("playing preload")
             var game = this.game;
-            this.game.load.image('welcome', 'assets/welcome.png');
 
+
+            this.game = game;
         },
         create:function(){
-            l("thegame create")
-            nn = game.add.sprite(game.world.width/2, 20,'welcome');
-            // loader_off = game.add.sprite(game.world.width/2, game.world.height/2,'loader_off');
-            // loader_on = game.add.sprite(game.world.width/2, game.world.height/2,'loader_on');            
+            l("playing create")
+
+            
         },
         update:function(){
-            l("thegame update")
+            l("playing update")
 
         }
     }
 
 
-    var game = new Phaser.Game(640, 480, Phaser.CANVAS);
+    var game = new Phaser.Game(800, 480, Phaser.CANVAS);
     start.boot = game;
     preload.boot = game;
     welcome.boot = game;
