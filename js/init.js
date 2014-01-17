@@ -65,6 +65,8 @@
             game.load.atlasJSONHash('slowing', 'assets/slowing.png','assets/slowing.json' );
             game.load.atlasJSONHash('fast', 'assets/fast.png','assets/fast.json' );
 
+            game.load.spritesheet('contador321', 'assets/libs/contador321.png', 119, 104, 3)
+
             game.load.onFileComplete.add(this.preloadBar, this);
 
             this.game = game;
@@ -301,31 +303,41 @@
             // this.player.setPlayer(player)
             this.player.run()
 
-            var text = "3";
-            var style = { font: "100px Arial", fill: "#ff0044", align: "center" };
-            var txt321 = game.add.text(game.world.centerX, game.world.centerY, text, style);
+            // var text = "3";
+            // var style = { font: "100px Arial", fill: "#ff0044", align: "center" };            
+            // var txt321 = game.add.text(game.world.centerX, game.world.centerY, text, style);            
+            // txt321.anchor.setTo(0.5, 0.5);
 
-            txt321.anchor.setTo(0.5, 0.5);
-            this.contador321(txt321)
 
+            var frames=[{index:0},{index:1},{index:2},{index:3},]
+            var txtContador = game.add.sprite(game.world.centerX, game.world.centerY, "contador321")
+            txtContador.anchor.setTo(0.5, 0.5);
+
+            txtContador.animations.add('loop',frames,0,true,true);
+            txtContador.animations.play('loop');
+
+            this.contadorInicio(txtContador)
 
             this.game = game;            
         },
-        contador321:function(t){
+        contadorInicio:function(t){
             var game = this.game;
-            var txt321=game.add.tween(t);
+            var txt = t;
+            var txt321=game.add.tween(txt);
+            var cont = 3;            
 
-            txt321.to({ alpha:0 }, 1000, Phaser.Easing.Linear.None)
+            txt321.to({ alpha:0 }, 500, Phaser.Easing.Linear.None)
             .start()
-            ._lastChild.onComplete.add(function(){ea.start();}, this);
+            ._lastChild.onComplete.add(function(){
+                // ea.start();
+                // txt.setText("2")
+
+            }, this);            
             // .onCompleteCallback(function(){ea.start()})
-           
-            ea.to({ alpha:1 }, 1000, Phaser.Easing.Linear.In)
-            .to({ alpha:0 }, 500, Phaser.Easing.Linear.In, false, 2000)
-            ._lastChild.onComplete.add(this.changeGameState, this);
+
 
             this.game = game;
-        }
+        },
         update:function(){
             l("playing update")
             this.bgCielo.update()
