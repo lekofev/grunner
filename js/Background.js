@@ -1,11 +1,12 @@
 
 
-var BackgroundManager=function(_objA, _objB, _heroSpeed, _bgSpeed)
+var BackgroundManager=function(_objA, _objB, _heroSpeed, _bgSpeed, _game)
 {
 	var bgA = _objA
 	var bgB = _objB
 	var bgSpeed = _bgSpeed
 	var heroSpeed = _heroSpeed
+	var game = _game;
 
 	var setOnCanvas = function(fitScreen)
 	{

@@ -4,11 +4,17 @@ var CharacterManager= function()
 	var player, activity;
 	var x=120, y=430;
 	var completeEvent = false;
+	var game;
 
 	// function createCharacter(x, y, activity)
 	// {
 
 	// }
+
+	function constructor(_game){
+		game = _game;
+		// player = _player;
+	}
 
 	function run(){
 	    player=game.add.sprite(x,y,"correr")
@@ -86,7 +92,12 @@ var CharacterManager= function()
 	{
 		return player;
 	}
+	function setPlayer(_player)
+	{
+		player = _player;
+	}
 	return{
+		constructor:constructor,
 		destroy:destroy,
 		run:run,
 		jump:jump,
@@ -95,6 +106,7 @@ var CharacterManager= function()
 		accelerate:accelerate,
 		setCompleteEvent:setCompleteEvent,
 		getCompleteEvent:getCompleteEvent,
+		setPlayer:setPlayer,
 		getPlayer:getPlayer
 	}
 

@@ -243,6 +243,27 @@
         }
     }
     var playing={
+        pause:false,
+        changeActivity:false,
+        running:true,
+        jumping:false,
+        dashing:false,
+        slowing:false,
+        accelerating:false,
+        debug:true,
+        contadorActividad:0,
+        runnerSpeed:4,
+        cieloA:Phaser.Sprite,
+        cieloB:Phaser.Sprite,
+        edificioFondoA:Phaser.Sprite, 
+        edificioFondoB:Phaser.Sprite,
+        edificioA:Phaser.Sprite,
+        edificioB:Phaser.Sprite,
+        bgCielo:{},
+        bgBackBuildings:Phaser.Sprite, 
+        bgFrontBuildings:Phaser.Sprite,
+        bgSideWalk:Phaser.Sprite,
+        player:new CharacterManager(),
         boot:function(game){
             this.game = game;
         },
@@ -255,12 +276,126 @@
         },
         create:function(){
             l("playing create")
+            var game = this.game;            
+            this.cieloA = game.add.sprite(0, 0,'cieloA');
+            this.cieloB = game.add.sprite(0, 0,'cieloB');
+            this.bgCielo = new BackgroundManager(this.cieloA, this.cieloB, this.runnerSpeed, 0.2, game)
+            this.bgCielo.setOnCanvas(true)
 
-            
+            this.edificioFondoA = game.add.sprite(0, 0,'edificioFondoA');
+            this.edificioFondoB = game.add.sprite(0, 0,'edificioFondoB');
+            this.bgBackBuildings = new BackgroundManager(this.edificioFondoA, this.edificioFondoB, this.runnerSpeed, 0.5, game)
+            this.bgBackBuildings.setOnCanvas(true)
+
+            this.edificioA = game.add.sprite(0, 0,'edificioA');
+            this.edificioB = game.add.sprite(0, 0,'edificioB');
+            this.bgFrontBuildings = new BackgroundManager(this.edificioA, this.edificioB, this.runnerSpeed, 1, game)
+            this.bgFrontBuildings.setOnCanvas(false)
+
+            this.aceraA = game.add.sprite(0, 0,'aceraA');
+            this.aceraB = game.add.sprite(0, 0,'aceraB');
+            this.bgSideWalk = new BackgroundManager(this.aceraA, this.aceraB, this.runnerSpeed, 1, game)
+            this.bgSideWalk.setOnCanvas(false)
+
+            this.player.constructor(game)
+            // this.player.setPlayer(player)
+            this.player.run()
+
+            var text = "3";
+            var style = { font: "100px Arial", fill: "#ff0044", align: "center" };
+            var txt321 = game.add.text(game.world.centerX, game.world.centerY, text, style);
+
+            txt321.anchor.setTo(0.5, 0.5);
+            this.contador321(txt321)
+
+
+            this.game = game;            
         },
+        contador321:function(t){
+            var game = this.game;
+            var txt321=game.add.tween(t);
+
+            txt321.to({ alpha:0 }, 1000, Phaser.Easing.Linear.None)
+            .start()
+            ._lastChild.onComplete.add(function(){ea.start();}, this);
+            // .onCompleteCallback(function(){ea.start()})
+           
+            ea.to({ alpha:1 }, 1000, Phaser.Easing.Linear.In)
+            .to({ alpha:0 }, 500, Phaser.Easing.Linear.In, false, 2000)
+            ._lastChild.onComplete.add(this.changeGameState, this);
+
+            this.game = game;
+        }
         update:function(){
             l("playing update")
+            this.bgCielo.update()
+            this.bgBackBuildings.update()
+            this.bgFrontBuildings.update()
+            this.bgSideWalk.update()
+            this.watcherActivity()
+        },
+        render:function () {
+        },
+        watcherActivity:function (){
+            if(this.changeActivity)
+            {
+                if(this.running)
+                {
+                    console.log("running")
+                    this.changeActivity = false;
+                }
+                else if(this.jumping)
+                {
+                    console.log("jumping")
 
+                    this.player.destroy();
+                    this.player.jump()
+
+                    this.changeActivity = false;
+                    this.jumping = false;
+                }
+                else if(this.dashing) 
+                {
+                    console.log("dashing")
+
+                    this.player.destroy();
+                    this.player.dash() 
+
+                    this.changeActivity = false;
+                    this.dashing = false;
+                }    
+                else if(this.slowing)
+                {
+                    console.log("slowing")
+                    this.bgActivity(2)
+                    this.player.destroy();
+                    this.player.slow();
+                    this.changeActivity = false;
+                    this.slowing = false;
+                }
+                else if(this.accelerating)
+                {
+                    console.log("accelerating")
+                    this.bgActivity(7)
+                    this.player.destroy();
+                    this.player.accelerate();
+                    this.changeActivity = false;
+                    this.accelerating = false;
+                }
+            }
+            if(this.player.getCompleteEvent()) {
+                console.log ("normalspeed")
+                this.bgActivity(4)
+                this.player.setCompleteEvent()
+            };
+            
+        },
+        bgActivity:function(newSpeed)
+        {
+            this.bgCielo.setHeroSpeed(newSpeed)
+            this.bgBackBuildings.setHeroSpeed(newSpeed)
+            this.bgFrontBuildings.setHeroSpeed(newSpeed)
+            this.bgSideWalk.setHeroSpeed(newSpeed)
         }
     }
 
@@ -288,4 +423,54 @@
     var b3 = document.getElementById('thegame').onclick = function () {
         game.state.start('thegame', true, true);
     };
+
+
+
+
+
+    $(document).ready(function(){   
+
+        $$('canvas').tap(function() {
+            console.log('the tap')
+        });
+        $$('canvas').doubleTap(function() {
+            console.log('the doubleTap')
+        });
+        $$('canvas').hold(function() {
+            console.log('the hold')
+        });
+
+
+        $$('canvas').swipeUp(function() {
+            playing.changeActivity = true
+            playing.running = false
+            playing.jumping = true
+
+        });
+        $$('canvas').swipeDown(function() {
+            console.log('the swipeDown')
+            playing.changeActivity = true
+            playing.running = false
+            playing.dashing = true 
+        });
+        $$('canvas').swipeRight(function() {
+            console.log('the swipeRight')
+            playing.changeActivity = true
+            playing.running = false
+            playing.accelerating = true 
+        });
+
+        $$('canvas').swipeLeft(function() {
+            console.log('the swipeLeft')
+            playing.changeActivity = true
+            playing.running = false
+            playing.slowing = true 
+        });
+
+
+    });//end jquery
+
+
+
+
 })();
