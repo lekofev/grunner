@@ -65,7 +65,7 @@
             game.load.atlasJSONHash('slowing', 'assets/slowing.png','assets/slowing.json' );
             game.load.atlasJSONHash('fast', 'assets/fast.png','assets/fast.json' );
 
-            game.load.spritesheet('contador321', 'assets/libs/contador321.png', 119, 104, 3)
+            game.load.spritesheet('contador321', 'assets/libs/contador321.png', 119, 104, 4)
 
             game.load.onFileComplete.add(this.preloadBar, this);
 
@@ -309,34 +309,34 @@
             // txt321.anchor.setTo(0.5, 0.5);
 
 
-            var frames=[{index:0},{index:1},{index:2},{index:3},]
+            
             var txtContador = game.add.sprite(game.world.centerX, game.world.centerY, "contador321")
             txtContador.anchor.setTo(0.5, 0.5);
 
-            txtContador.animations.add('loop',frames,0,true,true);
-            txtContador.animations.play('loop');
+            txtContador.animations.add('cont_321',[0,1,2,3]);
+            txtContador.animations.play('cont_321',1, false, true);
 
-            this.contadorInicio(txtContador)
+            // this.contadorInicio(txtContador)
 
             this.game = game;            
         },
         contadorInicio:function(t){
-            var game = this.game;
-            var txt = t;
-            var txt321=game.add.tween(txt);
-            var cont = 3;            
+            // var game = this.game;
+            // var txt = t;
+            // var txt321=game.add.tween(txt);
+            // var cont = 3;            
 
-            txt321.to({ alpha:0 }, 500, Phaser.Easing.Linear.None)
-            .start()
-            ._lastChild.onComplete.add(function(){
-                // ea.start();
-                // txt.setText("2")
+            // txt321.to({ alpha:0 }, 500, Phaser.Easing.Linear.None)
+            // .start()
+            // ._lastChild.onComplete.add(function(){
+            //     // ea.start();
+            //     // txt.setText("2")
 
-            }, this);            
-            // .onCompleteCallback(function(){ea.start()})
+            // }, this);            
+            // // .onCompleteCallback(function(){ea.start()})
 
 
-            this.game = game;
+            // this.game = game;
         },
         update:function(){
             l("playing update")

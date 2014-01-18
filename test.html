@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="es" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html lang="es" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="es" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Untitled</title>
+	<meta name="title" content="">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	
+	<!-- Opciones para compartir en Facebook -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:image:secure_url" content="">
+	<meta property="og:site_name" content="">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css?v=1">
+	
+	<script>
+	window.l= console.log.bind(console)
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-XXXXXXX-X']);
+		_gaq.push(['_trackPageview']);
+		
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	<script src="js/vendor/modernizr-2.6.1.min.js"></script>
+	<style>
+		canvas{
+			border:1px solid orange;
+			background-color: #fff;
+		}
+
+	</style>
+</head>
+<body>
+	<input type="button" id="preload"><input type="button" id="welcome"><input type="button" id="thegame">
+	<!-- Añadir código aquí -->
+	
+	
+	
+	<script src="js/vendor/jquery-1.8.1.min.js"></script>
+	<script src="js/vendor/phaser.js"></script>
+	<script src="js/vendor/quo.debug.js"></script>
+	<script src="js/vendor/TweenMax.min.js"></script>
+	<script src="js/Background.js"></script>
+	<script src="js/Character.js"></script>
+	
+<script>
+	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update:update });
+
+	function preload() {
+        game.load.spritesheet('contador321', 'assets/libs/contador321.png', 119, 104,4)
+	}
+
+	function create() {
+		var txtContador = game.add.sprite(0,0, 'contador321')
+        // txtContador.animations.add('loop',[0,1,2],1,true,true);
+        txtContador.animations.add('cont_321',[0,1,2,3]);
+        // txtContador.animations.frame = 2;
+        txtContador.animations.play('cont_321',1, false, true);
+	}
+	function update(){
+
+	}
+</script>
+</body>
+</html>
