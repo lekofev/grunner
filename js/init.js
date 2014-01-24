@@ -58,6 +58,8 @@
             game.load.image('aceraA', 'assets/acera.png');
             game.load.image('aceraB', 'assets/acera.png');
 
+            game.load.image('caja', 'objetos/caja.png');
+
             // player.crear();
             game.load.atlasJSONHash('correr', 'assets/correr.png','assets/correr.json' );
             game.load.atlasJSONHash('saltar', 'assets/saltar.png','assets/saltar.json' );
@@ -266,6 +268,7 @@
         bgFrontBuildings:Phaser.Sprite,
         bgSideWalk:Phaser.Sprite,
         player:new CharacterManager(),
+        obstaculo:new ObjectManager(),
         boot:function(game){
             this.game = game;
         },
@@ -273,12 +276,36 @@
             l("playing preload")
             var game = this.game;
 
+            game.load.image('cieloA', 'assets/cielo.jpg');
+            game.load.image('cieloB', 'assets/cielo.jpg');
+
+            game.load.image('edificioFondoA', 'assets/fondo.png');
+            game.load.image('edificioFondoB', 'assets/fondo.png');
+
+            game.load.image('edificioA', 'assets/edificio.png');
+            game.load.image('edificioB', 'assets/edificio.png');
+
+            game.load.image('aceraA', 'assets/acera.png');
+            game.load.image('aceraB', 'assets/acera.png');
+
+            game.load.image('caja', 'assets/objetos/caja.png');
+
+            // player.crear();
+            game.load.atlasJSONHash('correr', 'assets/correr.png','assets/correr.json' );
+            game.load.atlasJSONHash('saltar', 'assets/saltar.png','assets/saltar.json' );
+            game.load.atlasJSONHash('barrer', 'assets/barrer.png','assets/barrer.json' );
+            game.load.atlasJSONHash('slowing', 'assets/slowing.png','assets/slowing.json' );
+            game.load.atlasJSONHash('fast', 'assets/fast.png','assets/fast.json' );
+
+            game.load.spritesheet('contador321', 'assets/libs/contador321.png', 119, 104, 4)
 
             this.game = game;
         },
         create:function(){
             l("playing create")
-            var game = this.game;            
+            var game = this.game;
+            var obstaculo = this.obstaculo;
+
             this.cieloA = game.add.sprite(0, 0,'cieloA');
             this.cieloB = game.add.sprite(0, 0,'cieloB');
             this.bgCielo = new BackgroundManager(this.cieloA, this.cieloB, this.runnerSpeed, 0.2, game)
@@ -307,9 +334,7 @@
             // var style = { font: "100px Arial", fill: "#ff0044", align: "center" };            
             // var txt321 = game.add.text(game.world.centerX, game.world.centerY, text, style);            
             // txt321.anchor.setTo(0.5, 0.5);
-
-
-            
+           
             var txtContador = game.add.sprite(game.world.centerX, game.world.centerY, "contador321")
             txtContador.anchor.setTo(0.5, 0.5);
 
@@ -318,7 +343,20 @@
 
             // this.contadorInicio(txtContador)
 
+            obstaculo.constructor(this.runnerSpeed, game)
+            obstaculo.crearObjeto('caja')
+
             this.game = game;            
+        },
+        update:function(){
+            l("playing update")
+            this.bgCielo.update()
+            this.bgBackBuildings.update()
+            this.bgFrontBuildings.update()
+            this.bgSideWalk.update()
+            this.watcherActivity()
+
+            this.obstaculo.update()
         },
         contadorInicio:function(t){
             // var game = this.game;
@@ -337,14 +375,6 @@
 
 
             // this.game = game;
-        },
-        update:function(){
-            l("playing update")
-            this.bgCielo.update()
-            this.bgBackBuildings.update()
-            this.bgFrontBuildings.update()
-            this.bgSideWalk.update()
-            this.watcherActivity()
         },
         render:function () {
         },
@@ -419,11 +449,11 @@
     cinematica.boot = game;
     playing.boot = game;
 
-    game.state.add('preload', preload, true);
+    game.state.add('preload', preload, false);
     game.state.add('start', start, false);    
     game.state.add('welcome', welcome, false);
     game.state.add('cinematica', cinematica, false);
-    game.state.add('playing', playing, false);
+    game.state.add('playing', playing, true);
 
     var b1 = document.getElementById('preload').onclick = function () {
         game.state.start('preload', true, true);
