@@ -60,20 +60,38 @@
 <script>
 	var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update:update });
 
+	var c1, c2
+
 	function preload() {
         game.load.spritesheet('contador321', 'assets/libs/contador321.png', 119, 104,4)
+
+        game.load.image('caja', 'assets/objetos/caja.png');
 	}
 
 	function create() {
 		var txtContador = game.add.sprite(0,0, 'contador321')
+		c1 = game.add.sprite(0,100, 'caja')
+		c1.name = "c1"
+		c1.body.immovable = true
+		c2 = game.add.sprite(0,0, 'caja')
+		c2.name = "c2"
+		c2.body.velocity.y = 100;
         // txtContador.animations.add('loop',[0,1,2],1,true,true);
         txtContador.animations.add('cont_321',[0,1,2,3]);
         // txtContador.animations.frame = 2;
         txtContador.animations.play('cont_321',1, false, true);
 	}
 	function update(){
+		console.log("updat")
+		// c2.y++
+		game.physics.collide(c1, c2, collisionHandler, null, this)
 
 	}
+	function collisionHandler(){
+		console.log("crash")
+	}
+
+
 </script>
 </body>
 </html>
